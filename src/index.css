@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+/* index.css or global.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #020617;
+    /* deep dark */
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.wave-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.wave-bg::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+
+    background: radial-gradient(circle at 30% 40%, rgba(139, 92, 246, 0.25), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.2), transparent 40%);
+
+    filter: blur(80px);
+}
+
+@keyframes floatWave {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.wave-bg svg {
+    animation: floatWave 10s ease-in-out infinite;
+}
+
+
+.gradient-text {
+    background: linear-gradient(90deg, #a855f7, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer {
+    background: linear-gradient(to top,
+            rgba(2, 6, 23, 0.9),
+            rgba(2, 6, 23, 0.4));
+}
+
+.hover-3d {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+    transform: rotateX(6deg) rotateY(-6deg) scale(1.03);
+    transition: 0.4s ease;
+}
+
+/* 🔥 glow effect */
+.hover-3d:hover>div:first-child {
+    box-shadow: 0 20px 60px rgba(168, 85, 247, 0.25);
+}
+
+.text-rotate {
+    display: inline-block;
+    overflow: hidden;
+    height: 30px;
+    vertical-align: bottom;
+}
+
+.text-rotate>span {
+    display: block;
+    animation: rotateText 8s infinite;
+}
+
+.text-rotate span span {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+
+@keyframes rotateText {
+    0% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-30px);
+    }
+
+    45% {
+        transform: translateY(-30px);
+    }
+
+    50% {
+        transform: translateY(-60px);
+    }
+
+    70% {
+        transform: translateY(-60px);
+    }
+
+    75% {
+        transform: translateY(-90px);
+    }
+
+    95% {
+        transform: translateY(-90px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
