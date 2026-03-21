@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
+require("dotenv").config
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -25,18 +27,30 @@ function Contact() {
         setLoading(true);
         setSuccess("");
 
-        try {
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            });
+        const updatedData = {
+            ...formData,
+            time: new Date().toLocaleString()
+        };
 
-            await res.json();
+        try {
+            // ✅ Email to YOU
+            await emailjs.send(
+                "service_2oxw0j6",            // 🔁 replace
+                "template_o7xo6tf",           // 🔁 replace
+                updatedData,
+                "F-beJV4k2t5NBxwf7"             // 🔁 replace
+            );
+
+            // ✅ Auto reply to USER
+            await emailjs.send(
+                "service_2oxw0j6",
+                "template_10u3385", // 🔁 replace
+                updatedData,
+                "F-beJV4k2t5NBxwf7"
+            );
 
             setSuccess("✅ Message sent successfully!");
+
             setFormData({
                 name: "",
                 email: "",
@@ -46,7 +60,8 @@ function Contact() {
             });
 
         } catch (error) {
-            setSuccess("❌ Something went wrong!");
+            console.error(error);
+            setSuccess("❌ Failed to send message");
         } finally {
             setLoading(false);
         }
