@@ -75,10 +75,10 @@ function Profile() {
 
                     {/* 🔥 Social Links */}
                     <div className="flex gap-4 mt-6 text-gray-400">
-                        <a href="#" className="hover:text-white transition">
+                        <a href="https://github.com/krishna123-sudo" className="hover:text-white transition">
                             GitHub
                         </a>
-                        <a href="#" className="hover:text-white transition">
+                        <a href="https://www.linkedin.com/in/krishna-sekhar-087a401b5/" className="hover:text-white transition">
                             LinkedIn
                         </a>
                         {/* <a href="#" className="hover:text-white transition">
