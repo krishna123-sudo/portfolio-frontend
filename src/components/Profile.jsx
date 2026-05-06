@@ -17,7 +17,7 @@ function Profile() {
                     className="relative"
                 >
                     <img
-                        src="https://media.licdn.com/dms/image/v2/D5603AQFXCDPnpGkZUA/profile-displayphoto-crop_800_800/B56ZvVlY6CKIAI-/0/1768814910515?e=1775692800&v=beta&t=qguxjjbGHmtLJcSZOmmgB9zboGZIjcOOD2QO4jEI4jw"
+                        src="/profile.jpeg"
                         alt="Krishna"
                         className="w-72 h-72 object-cover rounded-2xl shadow-2xl 
                         border border-white/10
